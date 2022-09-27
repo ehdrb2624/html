@@ -5,6 +5,18 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ImcreSoojin';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 *{
     margin: 0;
     padding: 0;
@@ -20,7 +32,20 @@ a{
 body{
     line-height: 1;
     color: #333;
-    font-family: 'twayair'; 
+    font-family: 'twayair';
+    cursor: url('../img/cursor_basic.png'), auto;
+}
+a:link, a:active, a:hover, a:visited, a:focus{
+    cursor: url('../img/cursor_hover.png'), auto;
+}
+.menu_open:hover, .menu_close:hover{
+    cursor: url('../img/cursor_hover.png'), auto;
+}
+.motion_menu ul:hover{
+    cursor: url('../img/cursor_hover.png'), auto;
+}
+.cont04 .list a:hover{
+    cursor: url('../img/cursor_hover-2.png'), auto;
 }
 /* common */
 .inner{
@@ -38,39 +63,48 @@ section .title p{
 }
 
 /* header */
-header{}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+    color: #333;
+    background-color: #fff;
+}
 header .inner{
+    color: #ff9aff;
     height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-header .inner h1{
-    font-size: 20px;
-}
-header .inner h1 a{}
-
-header .inner nav{}
 header .inner nav ul{
     display: flex;
-    font-size: 18px;
+    font-size: 22px;
 }
-header .inner nav ul li{}
 header .inner nav ul li a{
-    padding-left: 100px;
+    padding-left: 80px;
 }
-
+header .inner nav ul li:nth-of-type(2){
+    color: rgb(253, 221, 174);
+}
+header .inner nav ul li:nth-of-type(4){
+    color: rgb(253, 221, 174);
+}
 /* main_visual */
 .main_visual{
-    height: calc(100vh - 100px);
+    height: calc(100vh);
     position: relative;
+}
+.main_visual span{
+    color:blanchedalmond;
 }
 .main_visual img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .main_visual .inner{
     position: absolute;
     top: 50%;
@@ -85,9 +119,8 @@ header .inner nav ul li a{
 }
 .main_visual .inner h2{
     font-size: 70px;
+    font-family: 'ImcreSoojin';
 }
-
-
 /* .swiper */
 .swiper {
     width: 100%;
@@ -95,7 +128,7 @@ header .inner nav ul li a{
 }
   .swiper-slide {
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     background: #fff;
 
     /* Center slide text vertically */
@@ -118,9 +151,32 @@ header .inner nav ul li a{
     height: 100%;
     object-fit: cover;
 }
+.swiper-button-next{
+    color: #fff;
+}
+.swiper-button-prev{
+    color: #fff;
+}
+.swiper-pagination{
+    font-size: 20px;
+}
 /* cont01 영상편집 */
+[data-aos][data-aos][data-aos-duration="400"], body[data-aos-duration="400"] [data-aos]{
+    transition-duration: 0.8s;
+}
 .cont01{
     padding: 200px 0;
+    background-color: #fcaecc7e;
+}
+.cont01 .title{
+    font-family: 'ONE-Mobile-POP';   
+}
+.cont01 .title h3{
+    margin-bottom: 10px;
+    color:#333;
+}
+.cont01 .title p{
+    color: rgba(51, 51, 51, 0.61);
 }
 .cont01 .motion_menu{
     display: inline-block;
@@ -128,40 +184,39 @@ header .inner nav ul li a{
 .cont01 .motion_menu ul{
     display: flex;
     margin-bottom: 20px;
-    background-color: #eee;
+    background-color: #fcaecc7e;
     height: 40px;
     align-items: center;
     border-radius: 40px;
 }
 .cont01 .motion_menu ul li{
     padding: 0 30px;
-    font-size: 14px;
-    cursor: pointer;
+    font-size: 16px;
+    color: #333;
 }
 .cont01 .motion_menu ul li.on{
-    background-color: royalblue;
-    color: #fff;
+    background-color: blanchedalmond;
+    color: #333;
     height: 100%;
     line-height: 40px;
     border-radius: 40px;
 }
-
 .cont01 .mySwiper{
     display: none;
 }
 .cont01 .mySwiper.on{
     display: block;
 }
-
 .cont01 .mySwiper .item{
     display: flex;
     justify-content: space-between;
+    color: #333;
+    background-color: #fcaecc7e;
 }
 .cont01 .mySwiper .item .pc_youtube{
     width: 55%;
     position: relative;
 }
-
 .cont01 .mySwiper .item .pc_youtube img{
     height: auto;
 }
@@ -178,7 +233,7 @@ header .inner nav ul li a{
 .cont01 .mySwiper .item .pc_youtube .youtube > div iframe{
     width: 100%;height: 100%;
     position: absolute;
-    top: 0;left: 0;
+    top: 0; left: 0;
 }
 .cont01 .mySwiper .item .info{
     width: 45%;
@@ -194,22 +249,17 @@ header .inner nav ul li a{
 }
 .cont01 .mySwiper .item .info p {
     font-size: 20px;
-    border-top: 1px solid #ccc;
+    border-top: 3px solid blanchedalmond;
     margin-top: 20px;
     padding-top: 20px;
     line-height: 1.4;
 }
-
 .cont01 .mySwiper .item .info .text{
     margin: 20px 0 30px;
-}
-.cont01 .mySwiper .item .info .text ul{
 }
 .cont01 .mySwiper .item .info .text ul li{
     line-height: 1.6;
 }
-.cont01 .mySwiper .item .info .text ul li strong{}
-
 .cont01 .mySwiper .item .info .btn{
     display: flex;
 }
@@ -217,7 +267,7 @@ header .inner nav ul li a{
     height: 40px;
     line-height: 40px;
     border-radius: 40px;
-    background-color: royalblue;
+    background-color:  #fcaecc;
     color: #fff;
     margin-right: 10px;
 }
@@ -225,21 +275,27 @@ header .inner nav ul li a{
     padding: 0 25px;
 }
 .cont01 .mySwiper .item .info .btn li:nth-of-type(2){
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #ccc;
+    background-color: #fcaecc;
+    color: #fff;
+    border: 1px solid #fcaecc7e;
 }
-
-
 /* cont03 웹사이트 */
 .cont03{
     /* width: calc(100% - 300px);
     margin: 200px auto; */
-    background-color: #eee;
+    background-color: #FFE6F7;
     padding: 200px 0;
 }
 .cont03 .title{
     margin-bottom: 20px;
+    font-family: 'ONE-Mobile-POP';
+}
+.cont03 .title h3{
+    margin-bottom: 10px;
+    color: #333;
+}
+.cont03 .title p{
+    color:rgba(51, 51, 51, 0.61);
 }
 .cont03 .list{
     display: flex;
@@ -272,7 +328,7 @@ header .inner nav ul li a{
     transition: 0.5s;
 }
 .cont03 .list .item:hover .info a{
-    color: #fff;
+    color: #eee;
 }
 .cont03 .list .item img{
     width: 100%;
@@ -280,12 +336,13 @@ header .inner nav ul li a{
     object-fit: cover;
 }
 .cont03 .list .item .info{
-    position: absolute;
+    position: absolute; 
     bottom: 0;
     left: 0;
-    background-color:#fff;
+    background-color: #e4b7e4;
     padding: 50px;
     word-break: keep-all;
+    color: #333;
 }
 .cont03 .list .item .info h4{
     font-size: 30px;
@@ -313,17 +370,21 @@ header .inner nav ul li a{
     height: 45px;
     padding: 0 40px;
     display: block;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 /* cont04 그래픽디자인 */
 .cont04{
-    background-color: royalblue;
-    color: #fff;
+    background-color: #f8b8d07e;
+    color: rgba(0, 0, 0, 0.253);
     padding: 200px 0;
 }
 .cont04 .title{
     text-align: center;
+}
+.cont04 .title h3{
+    margin-bottom: 10px;
+    color: #333;
 }
 .cont04 .list{
     display: flex;
@@ -342,16 +403,24 @@ header .inner nav ul li a{
     background-color: #fff;
     color: #333;
     padding: 20px 10px;
+    text-align: center;
 }
 .cont04 .list a .info h4{
     font-size: 20px;
     margin-bottom: 7px;
 }
-.cont04 .list a .info p{}
-
 /* cont05 나의소개 */
 .cont05{
     padding: 200px 0;
+    font-family: 'ONE-Mobile-POP';
+    background-color: #fcaecc7e;
+}
+.cont05 .title h3{
+    margin-bottom: 10px;
+    color:#333;
+}
+.cont05 .title p{
+    color : rgba(51, 51, 51, 0.61);
 }
 .cont05 .info{
     display: flex;
@@ -367,7 +436,6 @@ header .inner nav ul li a{
     height: 100%;
     object-fit: cover;
 }
-
 .cont05 .info .text{
     width: 1000px;
     padding-left: 100px;
@@ -398,14 +466,14 @@ header .inner nav ul li a{
     font-size: 16px;
 }
 .cont05 .info .text .list li.v{
-    background-color: royalblue;
-    color: #fff;
+    background-color: blanchedalmond;
+    color: #333;
 }
 
 /* footer */
 footer{
     padding: 70px 0;
-    background-color: #333;
+    background-color: blanchedalmond;
     color: #fff;
     text-align: center;
 }
@@ -416,9 +484,10 @@ footer ul li{
     height: 50px;
     line-height: 50px;
     width: 200px;
-    background-color: royalblue;
+    background-color: #fcaecc7e;
     margin: 10px auto;
     border-radius: 40px;
+    display: inline-block;
 }
 footer ul li a{
     display: block;
@@ -426,16 +495,6 @@ footer ul li a{
 footer p{
     margin-bottom: 10px;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.685);
+    color: rgba(51, 51, 51, 0.74);
     line-height: 1.4;
 }
-
-
-
-
-
-
-
-
-
-
